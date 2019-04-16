@@ -1,0 +1,13 @@
+ul.menu {
+  list-style: none;
+  li {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.2);
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
