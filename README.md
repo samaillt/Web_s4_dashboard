@@ -1,6 +1,8 @@
-# web_s4_dashboard
+# Twitch dashboard
 
-Florian TORRES / Michel YIP / Tom SAMAILLE - Application front-end réalisée dans le cadre du s4 de l'IMAC
+> Florian TORRES / Michel YIP / Tom SAMAILLE - Front-end app made during the fourth semester of IMAC
+
+Twitch app made for streamers, by streamers.
 
 ## Coding norms
 

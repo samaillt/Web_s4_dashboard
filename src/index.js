@@ -1,5 +1,5 @@
 import { app } from 'hyperapp';
-import '../styles/app.css';
+import '../styles/app.scss';
 import actions from './actions';
 import state from './state';
 import view from './components/Counter';

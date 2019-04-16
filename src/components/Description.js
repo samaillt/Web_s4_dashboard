@@ -2,7 +2,7 @@ import { h } from 'hyperapp';
 
 export default () => (
   <div>
-    <h1>hyperapp-one</h1>
+    <h1>Twitch dashboard</h1>
     <p>
       <em>With JSX and Webpack</em>
     </p>
