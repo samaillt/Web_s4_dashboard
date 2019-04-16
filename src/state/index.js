@@ -1,3 +1,5 @@
+import { location as router } from '@hyperapp/router'
+
 export default {
-  num: 0,
+  location: router.state,
 };

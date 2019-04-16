@@ -1,4 +1,5 @@
+import { location as router } from '@hyperapp/router'
+
 export default {
-  add: (/* event (e) */) => ({ num }) => ({ num: num + 1 }),
-  sub: (/* event (e) */) => ({ num }) => ({ num: num - 1 }),
+  location: router.actions,
 };
