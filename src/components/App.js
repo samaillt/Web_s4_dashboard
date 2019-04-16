@@ -4,7 +4,7 @@ import Menu from './Menu'
 import Home from './Home'
 import Profile from './Profile'
 
-export default (state, {location}) => (
+export default (state, actions) => (
   <div class="app">
     <Menu />
     <Route path="/" render={Home} />
