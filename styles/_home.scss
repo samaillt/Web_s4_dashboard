@@ -1,0 +1,44 @@
+.home {
+	h2 {
+		color: $mainColor;
+		margin-bottom: 20px;
+	}
+}
+
+
+.top-games {
+	// width: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	// justify-content: space-between;
+	padding: 20px 0;
+	margin: 0 -10px;
+
+	li {
+		display: flex;
+		flex-direction: column;
+		width: 150px;
+		padding: 10px;
+
+		// &:first-child {
+		// 	padding-left: 0;
+		// }
+		//
+		// &:last-child {
+		// 	padding-right: 0;
+		// }
+
+		img {
+			object-fit: cover;
+			max-width: 100%;
+		}
+
+		div.legend {
+			width: 100%;
+			padding: 20px;
+			background-color: rgba(black, .2);
+			font-size: 1rem;
+			box-sizing: border-box;
+		}
+	}
+}
