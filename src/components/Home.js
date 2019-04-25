@@ -1,36 +1,45 @@
-import { h } from 'hyperapp';
-import { Route } from "@hyperapp/router"
+import { h } from 'hyperapp'
 import Chart from 'chart.js'
+import TopGames from './TopGames'
 
-const MyChart = (props) => {
-  return h('canvas', {
-    oncreate: (element) => {
-      const ctx = element.getContext('2d');
-      const chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
+const LineChart = (props) => {
+	return h('div', {}, [
+			h('canvas', {
+				oncreate: (element) => {
+					const ctx = element.getContext('2d');
+					const chart = new Chart(ctx, {
+						// The type of chart we want to create
+						type: 'line',
 
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: ['Imac Gaming'],
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: props.hoursPlayed
-            }]
-        },
+						// The data for our dataset
+						data: {
+							labels: props.labels,
+							datasets: [{
+								label: ['Viewers'],
+								backgroundColor: 'rgb(255, 99, 132)',
+								borderColor: 'rgb(255, 99, 132)',
+								data: props.data
+							}]
+						},
 
-        // Configuration options go here
-        options: {}
-      });
-    }
-  })
+						// Configuration options go here
+						options: {}
+					});
+				}
+			})
+		]
+	)
 }
 
-export default () => (
-  <div>
-    <h2>Home</h2>
-    <MyChart hoursPlayed={[0, 10, 5, 2, 20, 30, 45]} />
-  </div>
+export default props => locationProps => state => (
+	<div class="home" oncreate={props.getTopGames}>
+		<h2>Top games {state.topGamesLoading && "loading..."}</h2>
+		<button class="primary-btn" onclick={() => {props.setTopGames([])}}>Clear</button>
+		<button class="secondary-btn" onclick={props.getTopGames}>Refresh</button>
+		<TopGames topGames={state.topGames} />
+		{/* <LineChart
+			key="chart1"
+			labels={state.topGames.names}
+			data={state.topGames.viewers} /> */}
+	</div>
 );
