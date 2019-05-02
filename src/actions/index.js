@@ -26,12 +26,8 @@ export default {
 			});
 
 		response.then((data) => {
-			console.log('data',data)
+			console.log(data);
 			const games = data.top
-			console.log('GAMES', games)
-
-			const names = games.map(g => g.game.name)
-			console.log('NAMES',names)
 			
 			actions.setTopGames(games)
 		})
