@@ -1,6 +1,6 @@
 import { location as router } from '@hyperapp/router'
 
-const API_URL = "https://api.twitch.tv/helix/"
+const API_URL = "https://api.twitch.tv/kraken/"
 const CLIENT_ID = "v4la970ztrif17s6tvu56zb1gyticw"
 
 export default {
@@ -17,7 +17,7 @@ export default {
 		const options = {
 		}
 
-		const response = fetch(API_URL + 'games/top', {
+		const response = fetch(API_URL + 'games/top?limit=5', {
 			headers,
 			...options
 		}).then(response => response.json())
@@ -26,11 +26,13 @@ export default {
 			});
 
 		response.then((data) => {
-			const games = data.data.slice(0,5)
+			console.log('data',data)
+			const games = data.top
 			console.log('GAMES', games)
 
-			const names = games.map(g => g.name)
-			console.log("names", names)
+			const names = games.map(g => g.game.name)
+			console.log('NAMES',names)
+			
 			actions.setTopGames(games)
 		})
 
