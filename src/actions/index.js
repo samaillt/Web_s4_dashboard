@@ -26,7 +26,6 @@ export default {
 			});
 
 		response.then((data) => {
-			console.log(data);
 			const games = data.top
 			
 			actions.setTopGames(games)
