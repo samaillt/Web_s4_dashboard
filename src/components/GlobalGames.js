@@ -1,4 +1,5 @@
 import { h } from 'hyperapp'
+const format = require('format-number');
 
 const GlobalGamesChart = (props) => {
   return h('div',{}, [
@@ -15,12 +16,32 @@ const GlobalGamesChart = (props) => {
 						datasets: [
 							{
 								label: 'Number of Viewers',
-								backgroundColor: ['#3e95cd', '#8e5ea2','#3cba9f','#e8c3b9','#c45850'],
+								backgroundColor: [
+									'rgba(100, 65, 165, .9)',
+									'rgba(100, 65, 165, .9)',
+									'rgba(100, 65, 165, .9)',
+									'rgba(100, 65, 165, .9)',
+									'rgba(100, 65, 165, .9)',
+								],
 								data: props.data
 							}
 						]
 					},
-					options: {}
+					options: {
+						scales: {
+							yAxes: [{
+								ticks: {
+									// Format ticks on the Y axis
+									callback: function(value, index, values) {
+										return format({integerSeparator: ' '})(value);
+									}
+								}
+							}],
+							xAxes: [{
+								barPercentage: .5,
+							}]
+		        }
+					}
 				}, []);
 			}
 			//onupdate: ...,
@@ -32,4 +53,4 @@ const GlobalGamesChart = (props) => {
 
 export default (props) => (
       <GlobalGamesChart labels={props.labels} data={props.data}/>
-); 
+);
