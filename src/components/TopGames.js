@@ -7,7 +7,6 @@ export default (props) => (
 				<img src={g.game.box.template.replace('{width}', '285').replace('{height}', '380')} alt={g.name} />
 				<div class="legend">
 					<p>{g.game.name}</p>
-					<p>{g.viewers}</p>
 				</div>
 			</li>
 		))}
