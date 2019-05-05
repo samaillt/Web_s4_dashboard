@@ -8,22 +8,25 @@ export default {
 
 	getTopGames: () => (state, actions) => {
 		console.log("getTopGames actions", API_URL)
+
 		const headers = {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
-			'method': 'GET',
 			'Client-ID': CLIENT_ID
 		}
+
 		const options = {
+			method: 'GET',
+			headers: headers,
+			mode: 'cors',
+			cache: 'default'
 		}
 
-		const response = fetch(API_URL + 'games/top?limit=5', {
-			headers,
-			...options
-		}).then(response => response.json())
+		const response = fetch(API_URL + 'games/top?limit=5', options)
+			.then(response => response.json())
 			.catch(function(error) {
 				console.log(error)
-			});
+			})
 
 		response.then((data) => {
 			console.log('data',data)
@@ -32,7 +35,7 @@ export default {
 
 			const names = games.map(g => g.game.name)
 			console.log('NAMES',names)
-			
+
 			actions.setTopGames(games)
 		})
 
