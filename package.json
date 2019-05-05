@@ -18,7 +18,9 @@
   "license": "MIT",
   "dependencies": {
     "@hyperapp/router": "^0.7.1",
+    "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
+    "format-number": "^3.0.0",
     "hyperapp-redux-devtools": "^1.1.6"
   },
   "babel": {
