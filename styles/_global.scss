@@ -1,8 +1,5 @@
 body {
-	font-family: sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-family: 'Poppins', sans-serif;
 	min-height: 100vh;
 	margin: 0;
 	font-size: calc(10px + 2vmin);
@@ -25,6 +22,10 @@ button {
 	height: 3rem;
 }
 
+h1, h2, h3 {
+	font-family: 'Raleway';
+}
+
 h1 {
   font-size: calc(20px + 6vmin);
   margin-top: 0;
@@ -35,7 +36,7 @@ h1 {
 }
 
 p {
-  text-align: center;
+  // text-align: center;
   margin-top: 0;
 }
 
@@ -45,7 +46,8 @@ a {
 
 .content {
 	margin-top: $menuHeight;
-	padding: 20px 15% 0 15%;
+	padding-top: 20px;
+	// padding: 20px 15% 0 15%;
 }
 
 button {
@@ -55,7 +57,7 @@ button {
 	cursor: pointer;
 	box-sizing: border-box;
 	height: auto;
-	margin-right: 10px;	
+	margin-right: 10px;
 
 	&.primary-btn {
 		color: white;

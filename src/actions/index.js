@@ -1,4 +1,5 @@
 import { location as router } from '@hyperapp/router'
+const format = require('format-number');
 
 const API_URL = "https://api.twitch.tv/kraken/"
 const CLIENT_ID = "v4la970ztrif17s6tvu56zb1gyticw"
@@ -29,14 +30,12 @@ export default {
 			})
 
 		response.then((data) => {
-			console.log('data',data)
 			const games = data.top
-			console.log('GAMES', games)
-
-			const names = games.map(g => g.game.name)
-			console.log('NAMES',names)
-
-			actions.setTopGames(games)
+			const newGames = games.map(g => ({
+				...g,
+				viewers: format({integerSeparator: ' ', suffix: ' viewers'})(g.viewers) // Number formatting
+			}))
+			actions.setTopGames(newGames)
 		})
 
 		return {

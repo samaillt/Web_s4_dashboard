@@ -7,26 +7,24 @@
 
 
 .top-games {
-	// width: 50%;
-	display: flex;
-	flex-wrap: wrap;
-	// justify-content: space-between;
-	padding: 20px 0;
-	margin: 0 -10px;
+	// display: flex;
+	// flex-wrap: wrap;
+	// padding: 20px 0;
+	// margin: 0 -10px;
 
 	li {
-		display: flex;
-		flex-direction: column;
-		width: 150px;
-		padding: 10px;
+		// display: flex;
+		// flex-direction: column;
+		// padding: 10px;
+		max-width: 170px;
 
-		// &:first-child {
-		// 	padding-left: 0;
-		// }
-		//
-		// &:last-child {
-		// 	padding-right: 0;
-		// }
+		&:first-child {
+			margin-left: 0 !important;
+		}
+
+		&:last-child {
+			margin-right: 0 !important;
+		}
 
 		img {
 			object-fit: cover;
@@ -36,9 +34,24 @@
 		div.legend {
 			width: 100%;
 			padding: 20px;
-			background-color: rgba(black, .2);
+			// background-color: rgba(black, .1);
+			border: 3px solid rgba(black, .2);
+			border-top: 0;
 			font-size: 1rem;
 			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			text-align: left;
+
+			.name {
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+
+			.viewers-count {
+				font-size: .8em;
+			}
 		}
 	}
 }

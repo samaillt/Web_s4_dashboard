@@ -1,7 +1,7 @@
 import { h } from 'hyperapp';
 
 export default props => locationProps => state => (
-	<div key="profile">
+	<div>
 		<h2>Profile</h2>
 	</div>
 );
