@@ -9,7 +9,7 @@ export default (state, actions) => (
 		<Menu />
 		<div class="content container">
 			<Route path="/" render={Home({actions:actions})} />
-			<Route path="/profile" render={Profile} />
+			<Route path="/profile" render={Profile({actions:actions})} />
 		</div>
 	</div>
 );

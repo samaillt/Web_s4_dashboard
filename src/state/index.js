@@ -4,4 +4,8 @@ export default {
 	location: router.state,
 	topGames: [],
 	topStreams: [],
+	profileInput: {
+		value: ''
+	},
+	channelLoaded : false
 };

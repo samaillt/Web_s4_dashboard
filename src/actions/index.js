@@ -108,4 +108,60 @@ export default {
 			topStreamsLoading: false
 		})
 	},
+
+	setProfileValue: (value) => (state) => {
+		return {
+			...state, 
+			profileInput: {
+				...state.profileInput, 
+				value
+			}
+		}
+	},
+
+	setProfile: (payload) => {
+		console.log("setting")
+		return (state) => ({
+			...state,
+			profile: payload,
+			channelLoaded: true
+		})
+	},	
+
+	resetChannel: (state) => {
+		return (state) => ({
+			...state,
+			channelLoaded: false,
+			profile: {}
+		})
+	},
+
+	getChannelByName: () => (state, actions) => {
+		const headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Client-ID': CLIENT_ID
+		}
+
+		const options = {
+			method: 'GET',
+			headers: headers,
+			mode: 'cors',
+			cache: 'default'
+		}
+
+		const response = fetch(API_URL + 'channels/' + state.profileInput.value, options)
+			.then(response => response.json())
+			.catch(function(error) {
+				console.log(error)
+				actions.resetChannel()
+			})
+
+		response.then((data) => {
+			console.log('PROFILE', data)
+			actions.setProfile(data)
+		})
+
+		console.log(channelLoaded)
+	},
 };
