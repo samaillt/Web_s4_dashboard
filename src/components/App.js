@@ -8,7 +8,7 @@ export default (state, actions) => (
 	<div class="app">
 		<Menu />
 		<div class="content">
-			<Route path="/" render={Home({getTopGames: actions.getTopGames, setTopGames: actions.setTopGames})} />
+			<Route path="/" render={Home({actions:actions})} />
 			<Route path="/profile" render={Profile} />
 		</div>
 	</div>

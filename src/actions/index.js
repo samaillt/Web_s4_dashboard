@@ -6,13 +6,21 @@ const CLIENT_ID = "v4la970ztrif17s6tvu56zb1gyticw"
 export default {
 	location: router.actions,
 
+	getTopData: () => (state,actions) => {
+		console.log("getTopData actions", API_URL)
+		console.log('actions',actions)
+		actions.getTopGames()
+		actions.getTopStreams()
+		return {...state}
+	},
+
 	getTopGames: () => (state, actions) => {
 		console.log("getTopGames actions", API_URL)
 		const headers = {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
 			'method': 'GET',
-			'Client-ID': CLIENT_ID
+			'Client-ID': CLIENT_ID 
 		}
 		const options = {
 		}
@@ -41,12 +49,54 @@ export default {
 			topGamesLoading: true
 		}
 	},
+	
 	setTopGames: (payload) => {
 		console.log("payload", payload)
 		return (state) => ({
 			...state,
 			topGames: payload,
 			topGamesLoading: false
+		})
+	},
+
+	getTopStreams: () => (state, actions) => {
+		console.log("getTopStreams actions", API_URL)
+		const headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'method': 'GET',
+			'Client-ID': CLIENT_ID 
+		}
+		const options = {
+		}
+
+		const response = fetch(API_URL + 'streams?limit=5', {
+			headers,
+			...options
+		}).then(response => response.json())
+			.catch(function(error) {
+				console.log(error)
+			});
+
+		response.then((data) => {
+			const streams = data.streams
+			console.log('STREAMS', streams)
+			
+			actions.setTopStreams(streams)
+		})
+
+		return {
+			...state,
+			topStreamsLoading: true
+		}
+	},
+
+	setTopStreams: (payload) => {
+		console.log("payload", payload)
+		return (state) => ({
+			...state,
+			topStreams: payload,
+			topStreamsLoading: false
 		})
 	},
 };

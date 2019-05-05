@@ -1,45 +1,18 @@
 import { h } from 'hyperapp'
 import Chart from 'chart.js'
 import TopGames from './TopGames'
-
-const LineChart = (props) => {
-	return h('div', {}, [
-			h('canvas', {
-				oncreate: (element) => {
-					const ctx = element.getContext('2d');
-					const chart = new Chart(ctx, {
-						// The type of chart we want to create
-						type: 'line',
-
-						// The data for our dataset
-						data: {
-							labels: props.labels,
-							datasets: [{
-								label: ['Viewers'],
-								backgroundColor: 'rgb(255, 99, 132)',
-								borderColor: 'rgb(255, 99, 132)',
-								data: props.data
-							}]
-						},
-
-						// Configuration options go here
-						options: {}
-					});
-				}
-			})
-		]
-	)
-}
-
+import TopStreams from './TopStreams'
+ 
 export default props => locationProps => state => (
-	<div class="home" oncreate={props.getTopGames}>
-		<h2>Top games {state.topGamesLoading && "loading..."}</h2>
-		<button class="primary-btn" onclick={() => {props.setTopGames([])}}>Clear</button>
-		<button class="secondary-btn" onclick={props.getTopGames}>Refresh</button>
+	<div class="home" oncreate={props.actions.getTopData}>
+		<h2>Top Games {state.topGamesLoading && "loading..."}</h2>
+		<button class="primary-btn" onclick={() => {props.actions.setTopGames([])}}>Clear</button>
+		<button class="secondary-btn" onclick={props.actions.getTopGames}>Refresh</button>
 		<TopGames topGames={state.topGames} />
-		{/* <LineChart
-			key="chart1"
-			labels={state.topGames.names}
-			data={state.topGames.viewers} /> */}
+
+		<h2>Top Streams {state.topStreamsLoading && "loading..."}</h2>
+		<button class="primary-btn" onclick={() => {props.actions.setTopStreams([])}}>Clear</button>
+		<button class="secondary-btn" onclick={props.actions.getTopStreams}>Refresh</button>
+		<TopStreams topStreams={state.topStreams} />
 	</div>
 );
