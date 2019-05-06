@@ -51,7 +51,7 @@ export default {
 			topGamesLoading: true
 		}
 	},
-	
+
 	setTopGames: (payload) => {
 		console.log("payload", payload)
 		return (state) => ({
@@ -111,9 +111,9 @@ export default {
 
 	setProfileValue: (value) => (state) => {
 		return {
-			...state, 
+			...state,
 			profileInput: {
-				...state.profileInput, 
+				...state.profileInput,
 				value
 			}
 		}
@@ -126,7 +126,7 @@ export default {
 			profile: payload,
 			channelLoaded: true
 		})
-	},	
+	},
 
 	resetChannel: (state) => {
 		return (state) => ({
@@ -163,5 +163,53 @@ export default {
 		})
 
 		console.log(channelLoaded)
+	},
+
+	searchGameValueUpdate: (value) => (state) => {
+		return {
+			...state,
+			searchGame: {
+				...state.searchGame,
+				value: value
+			}
+		}
+	},
+
+	searchGameQuery: () => (state, actions) => {
+		const headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Client-ID': CLIENT_ID
+		}
+
+		const options = {
+			method: 'GET',
+			headers: headers,
+			mode: 'cors',
+			cache: 'default'
+		}
+
+		const response = fetch(API_URL + 'search/games?type=suggest&query=' + state.searchGame.value, options)
+			.then(response => response.json())
+			.catch(function(error) {
+				console.log(error)
+			})
+
+		response.then((data) => {
+			console.log('searchGameQuery', data)
+			actions.setSearchGamesResults(data.games)
+		})
+
+		return state
+	},
+
+	setSearchGamesResults: (payload) => (state) => {
+		return {
+			...state,
+			searchGame: {
+				...state.searchGame,
+				results: payload
+			}
+		}
 	},
 };

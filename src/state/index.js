@@ -7,5 +7,9 @@ export default {
 	profileInput: {
 		value: ''
 	},
-	channelLoaded : false
+	channelLoaded: false,
+	searchGame: {
+		value: '',
+		results: []
+	}
 };

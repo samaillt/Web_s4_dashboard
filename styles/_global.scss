@@ -35,6 +35,10 @@ h1 {
 	font-weight: 800;
 }
 
+h2 {
+  margin-top: 40px;
+}
+
 p {
   // text-align: center;
   margin-top: 0;
@@ -69,4 +73,12 @@ button {
 		background-color: white;
 		border: 1px solid lighten($mainColor, 25%);
 	}
+}
+
+input {
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid rgba(black, .2);
+	border-radius: 3px;
+
 }

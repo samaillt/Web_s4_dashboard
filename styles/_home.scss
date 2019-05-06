@@ -60,3 +60,18 @@
 		}
 	}
 }
+
+.search-games {
+	.search-game-results {
+		border: 1px solid rgba(black, .2);
+		li {
+			font-size: .6em;
+			margin-bottom: 10px;
+			color: black;
+			&:hover {
+				cursor: pointer;
+				color: $mainColor;
+			}
+		}
+	}
+}
