@@ -17,6 +17,11 @@
 		// flex-direction: column;
 		// padding: 10px;
 		max-width: 170px;
+		border-radius: 5px;
+		overflow: hidden;
+		padding: 10px;
+		box-shadow: 0 5px 15px rgba(black, .2);
+
 
 		&:first-child {
 			margin-left: 0 !important;
@@ -29,14 +34,14 @@
 		img {
 			object-fit: cover;
 			max-width: 100%;
+			border-radius: 5px;
 		}
 
 		div.legend {
 			width: 100%;
-			padding: 20px;
-			// background-color: rgba(black, .1);
-			border: 3px solid rgba(black, .2);
-			border-top: 0;
+			padding: 20px 0;
+			// padding: 20px;
+			border-radius: 0 0 5px 5px;
 			font-size: 1rem;
 			box-sizing: border-box;
 			display: flex;

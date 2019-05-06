@@ -8,8 +8,8 @@ export default (state, actions) => (
 	<div class="app">
 		<Menu />
 		<div class="content container">
-			<Route path="/" render={Home({getTopGames: actions.getTopGames, setTopGames: actions.setTopGames})} />
-			<Route path="/profile" render={Profile} />
+			<Route path="/" render={Home({actions:actions})} />
+			<Route path="/profile" render={Profile({actions:actions})} />
 		</div>
 	</div>
 );
