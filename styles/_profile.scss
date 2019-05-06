@@ -1,31 +1,31 @@
-#profile-content {
+.profile {
+
+	h2 {
+		color: $mainColor;
+		margin-bottom: 20px;
+	}
 
 	.search {
-		display: flex;
-		justify-content:center;
 		margin-bottom: 50px;
 		margin-top: 50px;
 	}
 
 	#profile-container {
 
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-
-		.profile-infos {
-
+		div {
 			width: 200px;
 			height: 150px;
 			border-radius: 5px;
-			overflow: hidden;
 			padding: 10px;
-			box-shadow: 0 5px 15px rgba(black, .2);
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-content: center;
 			text-align: center;
+			margin-right: 20px;
+			margin-left: 20px;
+		}
+
+		.profile-infos {
+
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(black, .2);
 
 			.value {
 				margin-bottom: 10px;
@@ -39,17 +39,11 @@
 		}
 
 		.profile-card {
-			width: 250px;
-			height: 200px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
 
 			.profile{
 				border-radius: 50%;
-				max-height: 120px;
-				max-width: 120px;
+				max-height: 110px;
+				max-width: 110px;
 				margin-bottom: 10px;
 			}
 		}

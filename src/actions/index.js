@@ -129,6 +129,7 @@ export default {
 	},	
 
 	resetChannel: (state) => {
+		console.log("falsing")
 		return (state) => ({
 			...state,
 			channelLoaded: false,
@@ -162,6 +163,6 @@ export default {
 			actions.setProfile(data)
 		})
 
-		console.log(channelLoaded)
+		console.log(state.channelLoaded)
 	},
 };
