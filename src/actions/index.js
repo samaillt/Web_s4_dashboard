@@ -197,7 +197,6 @@ export default {
 			})
 
 		response.then((data) => {
-			console.log('searchGameQuery', data)
 			actions.setSearchGamesResults(data.games)
 		})
 
