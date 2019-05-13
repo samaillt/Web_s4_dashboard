@@ -29,7 +29,7 @@ export default props => locationProps => state => (
 		<TopStreamsFromGame
 			key="chart2"
 			labels={state.topStreamsFromGame.results.map(s => s.channel.name)}
-			date={state.topStreamsFromGame.results.map(s => s.viewers)}/>} 
+			data={state.topStreamsFromGame.results.map(s => s.viewers)}/>} 
 
 		<h2>Top Streams {state.topStreamsLoading && "loading..."}</h2>
 		<button class="primary-btn" onclick={() => {props.actions.setTopStreams([])}}>Clear</button>

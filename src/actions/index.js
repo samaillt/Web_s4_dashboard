@@ -110,7 +110,7 @@ export default {
 	},
 
 	getTopStreamsFromGame: (game) => (state, actions) => {
-		console.log("GET TOP STREAMS FROM GAME")
+		console.log("getTopStreamsFromGame actions", API_URL)
 		const headers = {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ export default {
 			}))
 			const newStreams = {
 				searchedGame:game,
-				results:{...streams}
+				results:[...streams]
 			}
 			actions.setTopStreamsFromGame(newStreams)
 		})
