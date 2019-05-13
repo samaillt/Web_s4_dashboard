@@ -10,14 +10,12 @@ export default props => locationProps => state => (
 		<h2>Top Games {state.topGamesLoading && "loading..."}</h2>
 		<button class="primary-btn" onclick={() => {props.actions.setTopGames([])}}>Clear</button>
 		<button class="secondary-btn" onclick={props.actions.getTopGames}>Refresh</button>
-		<TopGames topGames={state.topGames} />
-
-		<h2>Top Games Views {state.topGamesLoading && "loading..."}</h2>
 		{!state.topGamesLoading &&
 			<GlobalGames
 				key="chart2"
 				labels={state.topGames.map(g => g.game.name)}
 				data={state.topGames.map(g => g.viewers)} />}
+		<TopGames topGames={state.topGames} />
 		<h2>Search Game</h2>
 		{state.searchGame.results &&
 			(<button class="secondary-btn mb-2" onclick={props.actions.resetSearchedGames}>Clear</button>)
