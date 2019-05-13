@@ -120,7 +120,6 @@ export default {
 	},
 
 	setProfile: (payload) => {
-		console.log("setting")
 		return (state) => ({
 			...state,
 			profile: payload,
@@ -129,7 +128,6 @@ export default {
 	},
 
 	resetChannel: (state) => {
-		console.log("falsing")
 		return (state) => ({
 			...state,
 			channelLoaded: false,
@@ -155,12 +153,10 @@ export default {
 			.then(response => response.json())
 			.catch(function(error) {
 				console.log(error)
-				actions.resetChannel()
 			})
 
 		response.then((data) => {
-			console.log('PROFILE', data)
-			actions.setProfile(data)
+			"error" in data ? actions.resetChannel() : actions.setProfile(data)
 		})
 
 		console.log(state.channelLoaded)
