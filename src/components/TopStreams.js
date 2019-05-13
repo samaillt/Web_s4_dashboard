@@ -10,7 +10,7 @@ export default (props) => (
         <div class="legend">
           <p class="name">{s.channel.name}</p>
           <p>Playing {s.game}</p>
-          <p class="viewers-count">{s.viewers_formated}</p>
+          <p class="viewers-count mt-2">{s.viewers_formated}</p>
         </div>
 			</li>
 		))}

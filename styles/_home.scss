@@ -62,15 +62,43 @@
 }
 
 .search-games {
+	input {
+		max-width: 200px;
+		display: inline-block;
+		font-size: .9rem;
+	}
 	.search-game-results {
 		border: 1px solid rgba(black, .2);
+		max-height: 300px;
+		min-width: 200px;
+		overflow-y: scroll;
+		scroll-behavior: auto;
 		li {
 			font-size: .6em;
-			margin-bottom: 10px;
+			// margin-bottom: 10px;
 			color: black;
+			position: relative;
+			padding: 5px 0 5px 12px;
+			display: inline-block;
 			&:hover {
 				cursor: pointer;
 				color: $mainColor;
+				&:after {
+					background-color: rgba($mainColor, .9);
+				}
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				height: 5px;
+				width: 5px;
+				background-color: rgba(black, .2);
+			}
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
