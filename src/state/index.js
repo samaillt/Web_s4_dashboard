@@ -4,6 +4,10 @@ export default {
 	location: router.state,
 	topGames: [],
 	topStreams: [],
+	topStreamsFromGame: {
+		results:[],
+		searchedGame:""
+	},
 	profileInput: {
 		value: ''
 	},
