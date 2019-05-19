@@ -8,11 +8,11 @@ export default {
 		results:[],
 		searchedGame:""
 	},
-	profileInput: {
+	channelInput: {
 		value: ''
 	},
-	profiles: [],
-	comparedProfileInput: {
+	channels: [],
+	comparedChannelInput: {
 		value: ''
 	},
 	channelLoaded: false,

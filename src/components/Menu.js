@@ -8,7 +8,7 @@ export default () => (
 				<Link to="/">Home</Link>
 			</li>
 			<li>
-				<Link to="/profile">My profile</Link>
+				<Link to="/profile">My channel</Link>
 			</li>
 		</ul>
 	</header>
