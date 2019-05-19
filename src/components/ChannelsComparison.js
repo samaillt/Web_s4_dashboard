@@ -1,4 +1,5 @@
 import { h } from 'hyperapp'
+const format = require('format-number');
 
 const ChannelsComparisonChart = (props) => {
   return h('div',{}, [
@@ -29,5 +30,5 @@ const ChannelsComparisonChart = (props) => {
 }
 
 export default (props) => (
-      <ChannelsComparisonChart labels={props.labels} data={props.data}/>
+    <ChannelsComparisonChart labels={props.labels} data={props.data}/>
 );
