@@ -119,11 +119,33 @@ export default {
 		}
 	},
 
+	setComparedProfileValue: (value) => (state) => {
+		return {
+			...state,
+			comparedProfileInput: {
+				...state.comparedProfileInput,
+				value
+			}
+		}
+	},
+
 	setProfile: (payload) => {
 		return (state) => ({
 			...state,
-			profile: payload,
-			channelLoaded: true
+			channelLoaded: true,
+			profiles: [
+				payload
+			]
+		})
+	},
+
+	addProfile: (payload) => {
+		return (state) => ({
+			...state,
+			profiles: [
+				...state.profiles,
+				payload
+			]
 		})
 	},
 
@@ -131,7 +153,7 @@ export default {
 		return (state) => ({
 			...state,
 			channelLoaded: false,
-			profile: {}
+			profiles : []
 		})
 	},
 
@@ -159,7 +181,34 @@ export default {
 			"error" in data ? actions.resetChannel() : actions.setProfile(data)
 		})
 
-		console.log(state.channelLoaded)
+		return state
+	},
+
+	getComparedChannelByName: () => (state, actions) => {
+		const headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Client-ID': CLIENT_ID
+		}
+
+		const options = {
+			method: 'GET',
+			headers: headers,
+			mode: 'cors',
+			cache: 'default'
+		}
+
+		const response = fetch(API_URL + 'channels/' + state.comparedProfileInput.value, options)
+			.then(response => response.json())
+			.catch(function(error) {
+				console.log(error)
+			})
+
+		response.then((data) => {
+			"error" in data ? actions.resetChannel() : actions.addProfile(data)
+		})
+
+		return state
 	},
 
 	searchGameValueUpdate: (value) => (state) => {

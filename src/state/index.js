@@ -7,6 +7,10 @@ export default {
 	profileInput: {
 		value: ''
 	},
+	profiles: [],
+	comparedProfileInput: {
+		value: ''
+	},
 	channelLoaded: false,
 	searchGame: {
 		value: '',
