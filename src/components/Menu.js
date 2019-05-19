@@ -4,6 +4,7 @@ import { Link } from "@hyperapp/router"
 export default () => (
 	<header>
 		<ul class="menu">
+			<div class="logo">Twitch dashboard</div>
 			<li>
 				<Link to="/">Home</Link>
 			</li>

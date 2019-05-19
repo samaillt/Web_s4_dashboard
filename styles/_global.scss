@@ -35,10 +35,6 @@ h1 {
 	font-weight: 800;
 }
 
-h2 {
-  margin-top: 40px;
-}
-
 p {
   // text-align: center;
   margin-top: 0;
@@ -80,5 +76,13 @@ input {
 	font-size: 1rem;
 	border: 1px solid rgba(black, .2);
 	border-radius: 3px;
+}
 
+.component {
+	padding: 30px;
+	border-radius: 5px;
+	background-color: white;
+	// border: 2px solid $secondaryColor;
+	margin: 25px 0;
+	box-shadow: 0 2px 5px rgba(black, .1);
 }
