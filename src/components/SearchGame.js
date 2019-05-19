@@ -20,14 +20,24 @@ export default (props) => (
 		<button
 			onclick={() => props.searchGameQuery()}
 			disabled={!props.searchGame.value}
-			class="ml-2 p-2">Valider</button>
+			class="ml-2 p-2">Search</button>
 		{
 			props.searchGame.results.length > 0 &&
-			(<div>
-				<ul class="search-game-results mb-3 p-3 d-inline-flex flex-column">
-				{props.searchGame.results.map(game => (<li class="d-flex">{game.name}</li>))}
-				</ul>
-			</div>)
+			(
+				<div>
+					<ul class="search-game-results mb-3 p-3 d-inline-flex flex-column">
+					{
+						props.searchGame.results.map(game =>
+							(
+								<li
+									onclick={() => props.getTopStreamsFromGame(game.name)}
+									class="d-flex">{game.name}</li>
+							)
+						)
+					}
+					</ul>
+				</div>
+			)
 		}
 	</div>
 );

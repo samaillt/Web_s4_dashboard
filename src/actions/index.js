@@ -109,6 +109,56 @@ export default {
 		})
 	},
 
+	getTopStreamsFromGame: (game) => (state, actions) => {
+		console.log("getTopStreamsFromGame actions", API_URL)
+		const headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Client-ID': CLIENT_ID
+		}
+
+		const options = {
+			method: 'GET',
+			headers: headers,
+			mode: 'cors',
+			cache: 'default'
+		}
+
+		const response = fetch(API_URL + 'streams?limit=5&game=' + game, {
+			headers,
+			...options
+		}).then(response => response.json())
+			.catch(function(error) {
+				console.log(error)
+			});
+
+		response.then((data) => {
+			const streams = data.streams.map(s => ({
+				...s,
+				viewers_formated: format({integerSeparator: ' ', suffix: ' viewers'})(s.viewers) // Number formatting
+			}))
+			const newStreams = {
+				searchedGame:game,
+				results:[...streams]
+			}
+			actions.setTopStreamsFromGame(newStreams)
+		})
+
+		return {
+			...state,
+			topStreamsFromGameLoading: true
+		}
+	},
+
+	setTopStreamsFromGame: (payload) => {
+		console.log("payload", payload)
+		return (state) => ({
+			...state,
+			topStreamsFromGame: payload,
+			topStreamsFromGameLoading: false
+		})
+	},
+
 	setProfileValue: (value) => (state) => {
 		return {
 			...state,
