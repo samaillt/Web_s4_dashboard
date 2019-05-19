@@ -1,4 +1,4 @@
-.profile {
+.channel {
 
 	h2 {
 		color: $mainColor;
@@ -10,7 +10,7 @@
 		margin-top: 50px;
 	}
 
-	#profile-container {
+	#channel-container {
 
 		div {
 			width: 200px;
@@ -22,7 +22,7 @@
 			margin-left: 20px;
 		}
 
-		.profile-infos {
+		.channel-infos {
 
 			overflow: hidden;
 			box-shadow: 0 5px 15px rgba(black, .2);
@@ -38,9 +38,9 @@
 			}
 		}
 
-		.profile-card {
+		.channel-card {
 
-			.profile{
+			.channel{
 				border-radius: 50%;
 				max-height: 110px;
 				max-width: 110px;

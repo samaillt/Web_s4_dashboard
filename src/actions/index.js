@@ -216,52 +216,62 @@ export default {
 		})
 	},
 
-	setProfileValue: (value) => (state) => {
+	setChannelValue: (value) => (state) => {
 		return {
 			...state,
-			profileInput: {
-				...state.profileInput,
+			channelInput: {
+				...state.channelInput,
 				value
 			}
 		}
 	},
 
-	setComparedProfileValue: (value) => (state) => {
+	setComparedChannelValue: (value) => (state) => {
 		return {
 			...state,
-			comparedProfileInput: {
-				...state.comparedProfileInput,
+			comparedChannelInput: {
+				...state.comparedChannelInput,
 				value
 			}
 		}
 	},
 
-	setProfile: (payload) => {
-		return (state) => ({
+	setChannel: (payload) => (state) => {
+		return {
 			...state,
 			channelLoaded: true,
-			profiles: [
+			channels: [
 				payload
 			]
-		})
+		}
 	},
 
-	addProfile: (payload) => {
-		return (state) => ({
+	addChannel: (payload) => (state) => {
+		return {
 			...state,
-			profiles: [
-				...state.profiles,
+			channelLoading: false,
+			channels: [
+				...state.channels,
 				payload
 			]
-		})
+		}
 	},
 
-	resetChannel: (state) => {
-		return (state) => ({
+	resetChannel: () => (state) => {
+		return {
 			...state,
 			channelLoaded: false,
-			profiles : []
-		})
+			channels : []
+		}
+	},
+
+	clearChannels: () => (state) => {
+		return {
+			...state,
+			channels : [
+				state.channels[0]
+			]
+		}
 	},
 
 	getChannelByName: () => (state, actions) => {
@@ -278,16 +288,15 @@ export default {
 			cache: 'default'
 		}
 
-		const response = fetch(API_URL + 'channels/' + state.profileInput.value, options)
+		const response = fetch(API_URL + 'channels/' + state.channelInput.value, options)
 			.then(response => response.json())
 			.catch(function(error) {
 				console.log(error)
 			})
 
 		response.then((data) => {
-			"error" in data ? actions.resetChannel() : actions.setProfile(data)
+			"error" in data ? actions.resetChannel() : actions.setChannel(data)
 		})
-
 		return state
 	},
 
@@ -305,17 +314,22 @@ export default {
 			cache: 'default'
 		}
 
-		const response = fetch(API_URL + 'channels/' + state.comparedProfileInput.value, options)
+		const response = fetch(API_URL + 'channels/' + state.comparedChannelInput.value, options)
 			.then(response => response.json())
 			.catch(function(error) {
 				console.log(error)
 			})
 
 		response.then((data) => {
-			"error" in data ? actions.resetChannel() : actions.addProfile(data)
+			if (!("error" in data)) {
+				actions.addChannel(data)
+			}
 		})
 
-		return state
+		return {
+			...state,
+			channelLoading: true
+		}
 	},
 
 	searchGameValueUpdate: (value) => (state) => {

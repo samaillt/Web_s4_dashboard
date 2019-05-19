@@ -22,7 +22,7 @@ const GlobalGamesChart = (props) => {
 									'rgba(100, 65, 165, .9)',
 									'rgba(100, 65, 165, .9)',
 									'rgba(100, 65, 165, .9)',
-								],
+								],	
 								data: props.data
 							}
 						]

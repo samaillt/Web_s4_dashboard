@@ -10,11 +10,11 @@ export default {
 	},
 	topClips:[],
 	selectedClip:{},
-	profileInput: {
+	channelInput: {
 		value: ''
 	},
-	profiles: [],
-	comparedProfileInput: {
+	channels: [],
+	comparedChannelInput: {
 		value: ''
 	},
 	channelLoaded: false,
