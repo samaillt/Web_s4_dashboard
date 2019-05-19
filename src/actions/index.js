@@ -246,7 +246,15 @@ export default {
 		}
 	},
 
+	getCurrentChannels: () => (state) => {
+		return {...state, channelLoading: false}
+	},
+
 	addChannel: (payload) => (state) => {
+		const found = false
+		for (const c of state.channels)
+			if (c._id == payload._id)
+				return {...state, channelLoading: false}
 		return {
 			...state,
 			channelLoading: false,
@@ -321,9 +329,7 @@ export default {
 			})
 
 		response.then((data) => {
-			if (!("error" in data)) {
-				actions.addChannel(data)
-			}
+			"error" in data ? actions.getCurrentChannels() : actions.addChannel(data)
 		})
 
 		return {
