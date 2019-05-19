@@ -4,6 +4,8 @@ import TopGames from './TopGames'
 import GlobalGames from './GlobalGames'
 import TopStreams from './TopStreams'
 import TopStreamsFromGame from './TopStreamsFromGame'
+import TopClips from './TopClips'
+import SelectedClip from './SelectedClip'
 import SearchGame from './SearchGame'
 
 export default props => locationProps => state => (
@@ -51,5 +53,13 @@ export default props => locationProps => state => (
 		<button class="primary-btn" onclick={() => {props.actions.setTopStreams([])}}>Clear</button>
 		<button class="secondary-btn" onclick={props.actions.getTopStreams}>Refresh</button>
 		<TopStreams topStreams={state.topStreams} />
+
+		<h2>Top Clips {state.topClipsLoading && "loading..."}</h2>
+		<button class="primary-btn" onclick={() => {props.actions.setTopClips([]); props.actions.setSelectedClip({})}}>Clear</button>
+		<button class="secondary-btn" onclick={props.actions.getTopClips}>Refresh</button>
+		<TopClips 
+			topClips={state.topClips} 
+			setSelectedClip={props.actions.setSelectedClip}/>
+		{state.selectedClip !== {} && <SelectedClip selectedClip={state.selectedClip} />}
 	</div>
 );

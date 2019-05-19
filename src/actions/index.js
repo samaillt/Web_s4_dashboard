@@ -12,6 +12,7 @@ export default {
 		console.log('actions',actions)
 		actions.getTopGames()
 		actions.getTopStreams()
+		actions.getTopClips()
 		return {...state}
 	},
 
@@ -156,6 +157,62 @@ export default {
 			...state,
 			topStreamsFromGame: payload,
 			topStreamsFromGameLoading: false
+		})
+	},
+
+	getTopClips: () => (state, actions) => {
+		console.log("getTopClips actions", API_URL)
+		const headers = {
+			'Accept': ' application/vnd.twitchtv.v5+json\r\n',
+			'Content-Type': 'application/json',
+			'Client-ID': CLIENT_ID
+		}
+
+		const options = {
+			method: 'GET',
+			headers: headers,
+			mode: 'cors',
+			cache: 'default'
+		}
+
+		const response = fetch(API_URL + 'clips/top?limit=5', {
+			headers,
+			...options
+		}).then(response => response.json())
+			.catch(function(error) {
+				console.log(error)
+			});
+
+		response.then((data) => {
+			const clips = data.clips
+			console.log('CLIPS', clips)
+			const newClips = clips.map(s => ({
+				...s,
+				views_formated: format({integerSeparator: ' ', suffix: ' views'})(s.views) // Number formatting
+			}))
+			actions.setTopClips(newClips)
+		})
+
+		return {
+			...state,
+			topClipsLoading: true
+		}
+	},
+
+	setTopClips: (payload) => {
+		console.log("payload", payload)
+		return (state) => ({
+			...state,
+			topClips: payload,
+			topClipsLoading: false
+		})
+	},
+
+	setSelectedClip: (payload) => {
+		console.log("payload", payload)
+		return (state) => ({
+			...state,
+			selectedClip: payload
 		})
 	},
 

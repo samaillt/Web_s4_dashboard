@@ -8,6 +8,8 @@ export default {
 		results:[],
 		searchedGame:""
 	},
+	topClips:[],
+	selectedClip:{},
 	profileInput: {
 		value: ''
 	},
