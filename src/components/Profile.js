@@ -32,5 +32,12 @@ export default props => locationProps => state => (
 				data={state.channels.map(p => p.followers)}
 			/>
 		}
+		{state.channels.length > 1 && !state.channelLoading &&
+			<ChannelsComparison
+				key="chart2"
+				labels={state.channels.map(p => p.display_name)}
+				data={state.channels.map(p => p.views)}
+			/>
+		}
 	</div>
 );
