@@ -6,7 +6,7 @@
 }
 
 
-.top-games {
+.cards {
 	li {
 		max-width: 170px;
 		border-radius: 5px;
@@ -112,5 +112,27 @@
 				margin-bottom: 0;
 			}
 		}
+	}
+}
+
+.top-clips {
+	&.cards {
+		min-height: 200px;
+
+		li {
+			img{
+				border-radius: 0;
+			}
+			&::after {
+				background: none;
+			}
+
+			.legend {
+				position: relative;
+				color: black;
+			}
+			box-shadow: 0 3px 6px rgba(black, .1);
+		}
+
 	}
 }

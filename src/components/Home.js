@@ -25,19 +25,21 @@ export default props => locationProps => state => (
 		</div>
 
 		<div class="component">
-			<h2>Search Game</h2>
-			{state.searchGame.results &&
-				<button
-						class="secondary-btn mb-2"
-						onclick={props.actions.resetSearchedGames}>Clear</button>
-			}
 			<div class="d-flex">
-				<SearchGame
-					searchGameValueUpdate={props.actions.searchGameValueUpdate}
-					searchGame={state.searchGame}
-					searchGameQuery={props.actions.searchGameQuery}
-					resetSearchedGames={props.actions.resetSearchedGames}
-					getTopStreamsFromGame={props.actions.getTopStreamsFromGame}/>
+				<div class="">
+					<h2>Search Game</h2>
+					{state.searchGame.results &&
+						<button
+								class="secondary-btn mb-2"
+								onclick={props.actions.resetSearchedGames}>Clear</button>
+					}
+					<SearchGame
+						searchGameValueUpdate={props.actions.searchGameValueUpdate}
+						searchGame={state.searchGame}
+						searchGameQuery={props.actions.searchGameQuery}
+						resetSearchedGames={props.actions.resetSearchedGames}
+						getTopStreamsFromGame={props.actions.getTopStreamsFromGame}/>
+				</div>
 				<div>
 					<h2>{state.topStreamsFromGameLoading !== undefined &&
 						state.topStreamsFromGameLoading && "Top Streams from game Loading ..."}

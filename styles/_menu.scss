@@ -5,13 +5,17 @@ ul.menu {
 	left: 0;
 	width: 100%;
 	background-color: rgba(white, 1);
-	box-shadow: 0 0 5px rgba(black, .2);
+	box-shadow: 0 0 5px rgba(black, .15);
 	height: $menuHeight;
 	list-style: none;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
 
+	.container {
+		display: flex;
+		justify-content: flex-start;
+		// align-self: stretch;
+		height: 100%;
+
+	}
 	.logo {
 		font-size: .9rem;
 		font-weight: bold;
@@ -23,11 +27,13 @@ ul.menu {
 		align-items: center;
 		padding: 0 25px;
 		text-transform: uppercase;
+		margin-right: 25px;
 	}
 
 	li {
 		display: flex;
 		margin: 0 10px;
+
 
 		a {
 			text-decoration: none;
@@ -36,6 +42,7 @@ ul.menu {
 			text-transform: uppercase;
 			font-weight: bold;
 			padding: 15px;
+			align-self: center;
 
 			&:hover {
 				color: $mainColor;
