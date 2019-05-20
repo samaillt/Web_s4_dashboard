@@ -385,4 +385,13 @@ export default {
 		}
 	},
 
+	resetSearchedGames: () => (state) => {
+		return {
+			...state,
+			searchGame: {
+				...state.searchGame,
+				results: []
+			}
+		}
+	},
 };
