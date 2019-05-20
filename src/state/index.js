@@ -4,8 +4,22 @@ export default {
 	location: router.state,
 	topGames: [],
 	topStreams: [],
-	profileInput: {
+	topStreamsFromGame: {
+		results:[],
+		searchedGame:""
+	},
+	topClips:[],
+	selectedClip: {},
+	channelInput: {
 		value: ''
 	},
-	channelLoaded : false
+	channels: [],
+	comparedChannelInput: {
+		value: ''
+	},
+	channelLoaded: false,
+	searchGame: {
+		value: '',
+		results: []
+	}
 };

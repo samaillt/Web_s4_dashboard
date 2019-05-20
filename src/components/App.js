@@ -6,9 +6,9 @@ import Profile from './Profile'
 
 export default (state, actions) => (
 	<div class="app">
-		<Menu />
+		<Menu location={state.location} />
 		<div class="content container">
-			<Route path="/" render={Home({actions:actions})} />
+			<Route path="/" render={Home({actions: actions})} />
 			<Route path="/profile" render={Profile({actions:actions})} />
 		</div>
 	</div>

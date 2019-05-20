@@ -70,3 +70,23 @@ button {
 		border: 1px solid lighten($mainColor, 25%);
 	}
 }
+
+input {
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid rgba(black, .2);
+	border-radius: 3px;
+}
+
+.component {
+	padding: 30px;
+	border-radius: 5px;
+	background-color: white;
+	// border: 6px solid rgba(black, .03);
+	margin: 25px 0;
+	box-shadow: 0 2px 5px rgba(black, .15);
+}
+
+.loader {
+	font-size: .5em;
+}

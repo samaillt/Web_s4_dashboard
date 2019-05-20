@@ -1,3 +1,51 @@
-.profile{
-	border-radius: 50;
+.channel {
+
+	h2 {
+		color: $mainColor;
+		margin-bottom: 20px;
+	}
+
+	.search {
+		margin-bottom: 50px;
+		margin-top: 50px;
+	}
+
+	#channel-container {
+
+		div {
+			width: 200px;
+			height: 150px;
+			border-radius: 5px;
+			padding: 10px;
+			text-align: center;
+			margin-right: 20px;
+			margin-left: 20px;
+		}
+
+		.channel-infos {
+
+			overflow: hidden;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+			.value {
+				margin-bottom: 10px;
+				font-weight: bold;
+				font-size: 1.5em;
+			}
+		}
+		
+		.name {
+			font-size: .6em;
+		}
+
+		.channel-card {
+
+			.channel{
+				border-radius: 50%;
+				max-height: 110px;
+				max-width: 110px;
+				margin-bottom: 10px;
+			}
+		}
+	}
 }

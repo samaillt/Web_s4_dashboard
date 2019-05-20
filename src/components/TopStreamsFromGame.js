@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 const format = require('format-number');
 
-const GlobalGamesChart = (props) => {
+const TopStreamsFromGame = (props) => {
   return h('div',{}, [
 		h('canvas', {
 			oncreate: (element) => {
@@ -20,7 +20,7 @@ const GlobalGamesChart = (props) => {
 									'rgba(100, 65, 165, .9)',
 									'rgba(100, 65, 165, .9)',
 									'rgba(100, 65, 165, .9)',
-								],	
+								],
 								data: props.data
 							}
 						]
@@ -50,5 +50,5 @@ const GlobalGamesChart = (props) => {
 }
 
 export default (props) => (
-      <GlobalGamesChart labels={props.labels} data={props.data}/>
+      <TopStreamsFromGame labels={props.labels} data={props.data}/>
 );

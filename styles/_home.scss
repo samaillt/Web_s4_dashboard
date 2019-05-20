@@ -6,22 +6,14 @@
 }
 
 
-.top-games {
-	// display: flex;
-	// flex-wrap: wrap;
-	// padding: 20px 0;
-	// margin: 0 -10px;
-
+.cards {
 	li {
-		// display: flex;
-		// flex-direction: column;
-		// padding: 10px;
 		max-width: 170px;
 		border-radius: 5px;
 		overflow: hidden;
-		padding: 10px;
-		box-shadow: 0 5px 15px rgba(black, .2);
-
+		cursor: pointer;
+		z-index: 1;
+		position: relative;
 
 		&:first-child {
 			margin-left: 0 !important;
@@ -35,12 +27,24 @@
 			object-fit: cover;
 			max-width: 100%;
 			border-radius: 5px;
+			position: relative;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: linear-gradient(transparent, transparent, black);
+			z-index: 1;
 		}
 
 		div.legend {
 			width: 100%;
 			padding: 20px 0;
-			// padding: 20px;
+			padding: 20px;
 			border-radius: 0 0 5px 5px;
 			font-size: 1rem;
 			box-sizing: border-box;
@@ -48,15 +52,109 @@
 			flex-direction: column;
 			align-items: flex-start;
 			text-align: left;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 2;
+			color: white;
 
 			.name {
-				margin-bottom: 10px;
+				// margin-bottom: 10px;
 				font-weight: bold;
+				position: relative;
 			}
 
 			.viewers-count {
 				font-size: .8em;
 			}
 		}
+	}
+}
+
+.cards.top-games {
+	li {
+		&:hover {
+			.legend .name {
+				bottom: 10px;
+			}
+		}
+		div.legend {
+			.name {
+				// margin-bottom: 10px;
+				font-weight: bold;
+				position: relative;
+				bottom: 0;
+				transition: .2s ease;
+			}
+		}
+	}
+}
+
+.top-streams-chart {
+	flex: 1;
+}
+
+.search-games {
+	input {
+		max-width: 200px;
+		display: inline-block;
+		font-size: .9rem;
+	}
+	.search-game-results {
+		border: 1px solid rgba(black, .2);
+		max-height: 300px;
+		min-width: 200px;
+		overflow-y: scroll;
+		scroll-behavior: auto;
+		li {
+			font-size: .5em;
+			// margin-bottom: 10px;
+			color: black;
+			position: relative;
+			padding: 3px 0 3px 12px;
+			display: inline-block;
+			&:hover {
+				cursor: pointer;
+				color: $mainColor;
+				&:after {
+					background-color: rgba($mainColor, .9);
+				}
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				height: 5px;
+				width: 5px;
+				background-color: rgba(black, .2);
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.top-clips {
+	&.cards {
+		min-height: 200px;
+
+		li {
+			img{
+				border-radius: 0;
+			}
+			&::after {
+				background: none;
+			}
+
+			.legend {
+				position: relative;
+				color: black;
+			}
+			box-shadow: 0 3px 6px rgba(black, .1);
+		}
+
 	}
 }
