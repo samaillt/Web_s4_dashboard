@@ -12,7 +12,6 @@ export default props => locationProps => state => (
 	<div class="home" oncreate={props.actions.getTopData}>
 		<div class="component">
 			<h2>Top Games {state.topGamesLoading && "loading..."}</h2>
-			<button class="primary-btn" onclick={() => {props.actions.setTopGames([])}}>Clear</button>
 			<button class="secondary-btn" onclick={props.actions.getTopGames}>Refresh</button>
 			{!state.topGamesLoading &&
 				<GlobalGames
@@ -53,14 +52,12 @@ export default props => locationProps => state => (
 
 		<div class="component">
 			<h2>Top Streams {state.topStreamsLoading && "loading..."}</h2>
-			<button class="primary-btn" onclick={() => {props.actions.setTopStreams([])}}>Clear</button>
 			<button class="secondary-btn" onclick={props.actions.getTopStreams}>Refresh</button>
 			<TopStreams topStreams={state.topStreams} />
 		</div>
 
 		<div class="component">
 			<h2>Top Clips {state.topClipsLoading && "loading..."}</h2>
-			<button class="primary-btn" onclick={() => {props.actions.setTopClips([]); props.actions.setSelectedClip({})}}>Clear</button>
 			<button class="secondary-btn" onclick={props.actions.getTopClips}>Refresh</button>
 			<TopClips
 				topClips={state.topClips}
