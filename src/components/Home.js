@@ -64,8 +64,9 @@ export default props => locationProps => state => (
 			<button class="secondary-btn" onclick={props.actions.getTopClips}>Refresh</button>
 			<TopClips
 				topClips={state.topClips}
-				setSelectedClip={props.actions.setSelectedClip}/>
-			{state.selectedClip !== {} && <SelectedClip selectedClip={state.selectedClip} />}
+				setSelectedClip={props.actions.setSelectedClip}
+			/>
+			{!(Object.entries(state.selectedClip).length === 0 && state.selectedClip.constructor === Object) && <SelectedClip selectedClip={state.selectedClip} />}
 		</div>
 	</div>
 );

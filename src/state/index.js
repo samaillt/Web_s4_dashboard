@@ -9,7 +9,7 @@ export default {
 		searchedGame:""
 	},
 	topClips:[],
-	selectedClip:{},
+	selectedClip: {},
 	channelInput: {
 		value: ''
 	},
