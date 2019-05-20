@@ -8,8 +8,6 @@ export default {
 	location: router.actions,
 
 	getTopData: () => (state,actions) => {
-		console.log("getTopData actions", API_URL)
-		console.log('actions',actions)
 		actions.getTopGames()
 		actions.getTopStreams()
 		actions.getTopClips()
@@ -17,7 +15,6 @@ export default {
 	},
 
 	getTopGames: () => (state, actions) => {
-		console.log("getTopGames actions", API_URL)
 
 		const headers = {
 			'Accept': 'application/json',
@@ -54,7 +51,6 @@ export default {
 	},
 
 	setTopGames: (payload) => {
-		console.log("payload", payload)
 		return (state) => ({
 			...state,
 			topGames: payload,
@@ -63,7 +59,6 @@ export default {
 	},
 
 	getTopStreams: () => (state, actions) => {
-		console.log("getTopStreams actions", API_URL)
 		const headers = {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
@@ -87,7 +82,6 @@ export default {
 
 		response.then((data) => {
 			const streams = data.streams
-			console.log('STREAMS', streams)
 			const newStreams = streams.map(s => ({
 				...s,
 				viewers_formated: format({integerSeparator: ' ', suffix: ' viewers'})(s.viewers) // Number formatting
@@ -102,7 +96,6 @@ export default {
 	},
 
 	setTopStreams: (payload) => {
-		console.log("payload", payload)
 		return (state) => ({
 			...state,
 			topStreams: payload,
@@ -111,7 +104,6 @@ export default {
 	},
 
 	getTopStreamsFromGame: (game) => (state, actions) => {
-		console.log("getTopStreamsFromGame actions", API_URL)
 		const headers = {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
@@ -152,7 +144,6 @@ export default {
 	},
 
 	setTopStreamsFromGame: (payload) => {
-		console.log("payload", payload)
 		return (state) => ({
 			...state,
 			topStreamsFromGame: payload,
@@ -161,7 +152,6 @@ export default {
 	},
 
 	getTopClips: () => (state, actions) => {
-		console.log("getTopClips actions", API_URL)
 		const headers = {
 			'Accept': ' application/vnd.twitchtv.v5+json\r\n',
 			'Content-Type': 'application/json',
@@ -185,7 +175,6 @@ export default {
 
 		response.then((data) => {
 			const clips = data.clips
-			console.log('CLIPS', clips)
 			const newClips = clips.map(s => ({
 				...s,
 				views_formated: format({integerSeparator: ' ', suffix: ' views'})(s.views) // Number formatting
@@ -200,7 +189,6 @@ export default {
 	},
 
 	setTopClips: (payload) => {
-		console.log("payload", payload)
 		return (state) => ({
 			...state,
 			topClips: payload,
@@ -209,7 +197,6 @@ export default {
 	},
 
 	setSelectedClip: (payload) => {
-		console.log("payload", payload)
 		return (state) => ({
 			...state,
 			selectedClip: payload
