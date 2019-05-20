@@ -11,8 +11,6 @@
 		max-width: 170px;
 		border-radius: 5px;
 		overflow: hidden;
-		// padding: 10px;
-		// box-shadow: 0 5px 15px rgba(black, .2);
 		cursor: pointer;
 		z-index: 1;
 		position: relative;
@@ -39,7 +37,7 @@
 			left: 0;
 			height: 100%;
 			width: 100%;
-			background: linear-gradient(transparent, black);
+			background: linear-gradient(transparent, transparent, black);
 			z-index: 1;
 		}
 
@@ -61,12 +59,32 @@
 			color: white;
 
 			.name {
-				margin-bottom: 10px;
+				// margin-bottom: 10px;
 				font-weight: bold;
+				position: relative;
 			}
 
 			.viewers-count {
 				font-size: .8em;
+			}
+		}
+	}
+}
+
+.cards.top-streams {
+	li {
+		&:hover {
+			.legend .name {
+				bottom: 10px;
+			}
+		}
+		div.legend {
+			.name {
+				// margin-bottom: 10px;
+				font-weight: bold;
+				position: relative;
+				bottom: 0;
+				transition: .2s ease;
 			}
 		}
 	}
